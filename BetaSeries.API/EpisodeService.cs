@@ -7,14 +7,14 @@ namespace BetaSeries.API
 {
 	public interface IEpisodeService
 	{
-		Task<RootEpisode> GetASync(int episodeId, bool getSubTitles = false);
-		Task<ShowList> FindEpisodesToWatchASync(int showId = 0, int limit = 0, Language language = Language.None);
-		Task<RootEpisode> NoteASync(int episodeId, int note);
-		Task<RootEpisode> RemoveNoteASync(int episodeId);
-		Task<RootEpisode> MarkAsWatchedASync(int episodeId, bool bulk = false);
-		Task<RootEpisode> MarkAsWatchedASync(int episodeId, int score, bool bulk = false);
-		Task<RootEpisode> GetASync(int showId, int globalEpisodeNumber);
-		Task<RootEpisode> MarkAsUnwatchedASync(int episodeId);
+		Task<Episode> GetASync(int episodeId, bool getSubTitles = false);
+		Task<IList<Show>> FindEpisodesToWatchASync(int showId = 0, int limit = 0, Language language = Language.None);
+		Task<Episode> NoteASync(int episodeId, int note);
+		Task<Episode> RemoveNoteASync(int episodeId);
+		Task<Episode> MarkAsWatchedASync(int episodeId, bool bulk = false);
+		Task<Episode> MarkAsWatchedASync(int episodeId, int score, bool bulk = false);
+		Task<Episode> GetASync(int showId, int globalEpisodeNumber);
+		Task<Episode> MarkAsUnwatchedASync(int episodeId);
 	}
 
 	public class EpisodeService : BaseService, IEpisodeService
@@ -26,7 +26,7 @@ namespace BetaSeries.API
 		private const string WatchedUrl = "/episodes/watched";
 		private const string SearchUrl = "/episodes/search";
 
-		public async Task<RootEpisode> GetASync(int episodeId, bool getSubTitles = false)
+		public async Task<Episode> GetASync(int episodeId, bool getSubTitles = false)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -41,10 +41,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Episode;
 		}
 
-		public async Task<ShowList> FindEpisodesToWatchASync(int showId = 0, int limit = 0, Language language = Language.None)
+		public async Task<IList<Show>> FindEpisodesToWatchASync(int showId = 0, int limit = 0, Language language = Language.None)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -61,10 +61,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Shows;
 		}
 
-		public async Task<RootEpisode> NoteASync(int episodeId, int note)
+		public async Task<Episode> NoteASync(int episodeId, int note)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -77,10 +77,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Episode;
 		}
 
-		public async Task<RootEpisode> RemoveNoteASync(int episodeId)
+		public async Task<Episode> RemoveNoteASync(int episodeId)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -92,10 +92,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Episode;
 		}
 
-		public async Task<RootEpisode> MarkAsWatchedASync(int episodeId, bool bulk = false)
+		public async Task<Episode> MarkAsWatchedASync(int episodeId, bool bulk = false)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -110,10 +110,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Episode;
 		}
 
-		public async Task<RootEpisode> MarkAsWatchedASync(int episodeId, int score, bool bulk = false)
+		public async Task<Episode> MarkAsWatchedASync(int episodeId, int score, bool bulk = false)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -129,10 +129,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Episode;
 		}
 
-		public async Task<RootEpisode> GetASync(int showId, int globalEpisodeNumber)
+		public async Task<Episode> GetASync(int showId, int globalEpisodeNumber)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -145,10 +145,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Episode;
 		}
 
-		public async Task<RootEpisode> MarkAsUnwatchedASync(int episodeId)
+		public async Task<Episode> MarkAsUnwatchedASync(int episodeId)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -160,7 +160,7 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Episode;
 		}
 	}
 }

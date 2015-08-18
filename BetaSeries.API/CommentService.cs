@@ -7,9 +7,9 @@ namespace BetaSeries.API
 {
 	public interface ICommentService
 	{
-		Task<RootComment> PostAsync(CommentType commentType, int id, string text, int inReplyTo = 0);
-		Task<RootComment> DeleteAsync(int commentId);
-		Task<CommentList> GetAsync(CommentType commentType, int id, int numberOfCommentByPage, int sinceId = 0);
+		Task<Comment> PostAsync(CommentType commentType, int id, string text, int inReplyTo = 0);
+		Task<Comment> DeleteAsync(int commentId);
+		Task<IList<Comment>> GetAsync(CommentType commentType, int id, int numberOfCommentByPage, int sinceId = 0);
 	}
 
 	public class CommentService : BaseService, ICommentService
@@ -18,7 +18,7 @@ namespace BetaSeries.API
 		private const string GetUrl = "/comments/comments";
 		private const string DeleteUrl = "/comments/comment";
 
-		public async Task<RootComment> PostAsync(CommentType commentType, int id, string text, int inReplyTo = 0)
+		public async Task<Comment> PostAsync(CommentType commentType, int id, string text, int inReplyTo = 0)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -35,10 +35,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Comment;
 		}
 
-		public async Task<RootComment> DeleteAsync(int commentId)
+		public async Task<Comment> DeleteAsync(int commentId)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -50,10 +50,10 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Comment;
 		}
 
-		public async Task<CommentList> GetAsync(CommentType commentType, int id, int numberOfCommentByPage, int sinceId = 0)
+		public async Task<IList<Comment>> GetAsync(CommentType commentType, int id, int numberOfCommentByPage, int sinceId = 0)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -71,7 +71,7 @@ namespace BetaSeries.API
 
 			ValidateResponse(response);
 
-			return response;
+			return response.Comments;
 		}
 	}
 }

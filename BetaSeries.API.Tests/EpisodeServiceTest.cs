@@ -22,49 +22,49 @@ namespace BetaSeries.API.Tests
 		[TestMethod]
 		public async Task GetASync()
 		{
-			var rootEpisode = await _episodeService.GetASync(263278, true);
+			var episode = await _episodeService.GetASync(263278, true);
 
-			Assert.IsNotNull(rootEpisode);
+			Assert.IsNotNull(episode);
 		}
 
 		[TestMethod]
 		public async Task FindEpisodesToWatchASync()
 		{
-			var showList = await _episodeService.FindEpisodesToWatchASync(0, 0, Language.All);
+			var shows = await _episodeService.FindEpisodesToWatchASync(0, 0, Language.All);
 
-			Assert.IsNotNull(showList);
+			Assert.IsNotNull(shows);
 		}
 
 		[TestMethod]
 		public async Task NoteASync()
 		{
-			var rootEpisode = await _episodeService.NoteASync(263278, 3);
+			var episode = await _episodeService.NoteASync(263278, 3);
 
-			Assert.IsNotNull(rootEpisode);
+			Assert.IsNotNull(episode);
 		}
 
 		[TestMethod]
 		public async Task RemoveNoteASync()
 		{
-			var rootEpisode = await _episodeService.RemoveNoteASync(263278);
+			var episode = await _episodeService.RemoveNoteASync(263278);
 
-			Assert.IsNotNull(rootEpisode);
+			Assert.IsNotNull(episode);
 		}
 
 		[TestMethod]
 		public async Task MarkAsWatchedASync()
 		{
-			var rootEpisode = await _episodeService.MarkAsWatchedASync(263278, true);
+			var episode = await _episodeService.MarkAsWatchedASync(263278, true);
 
-			Assert.IsNotNull(rootEpisode);
+			Assert.IsNotNull(episode);
 		}
 
 		[TestMethod]
 		public async void MarkAsUnwatchedASync()
 		{
-			var rootEpisode = await _episodeService.MarkAsUnwatchedASync(263278);
+			var episode = await _episodeService.MarkAsUnwatchedASync(263278);
 
-			Assert.IsNotNull(rootEpisode);
+			Assert.IsNotNull(episode);
 		}
 
 	}

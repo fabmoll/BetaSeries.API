@@ -24,25 +24,25 @@ namespace BetaSeries.API.Tests
 		[TestMethod]
 		public async Task PostAsync()
 		{
-			var rootComment = await _commentService.PostAsync(CommentType.Show, 2410, "test");
+			var comment = await _commentService.PostAsync(CommentType.Show, 2410, "test");
 			
-			Assert.IsNotNull(rootComment.Comment.Date);
+			Assert.IsNotNull(comment.Date);
 		}
 
 		[TestMethod]
 		public async Task GetAsync()
 		{
-			var commentList = await _commentService.GetAsync(CommentType.Show, 2410, 20);
+			var comments = await _commentService.GetAsync(CommentType.Show, 2410, 20);
 
-			Assert.IsTrue(commentList.Comments.Any());
+			Assert.IsTrue(comments.Any());
 		}
 
 		[TestMethod]
 		public async Task DeleteAsync()
 		{
-			var rootComment = await _commentService.DeleteAsync(343287);
+			var comment = await _commentService.DeleteAsync(343287);
 
-			Assert.IsNotNull(rootComment);
+			Assert.IsNotNull(comment);
 		}
 	}
 }
