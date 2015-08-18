@@ -1,4 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using BetaSeries.API.Exceptions;
+using BetaSeries.API.Model;
 using Kulman.WPA81.BaseRestService.Services.Abstract;
 
 namespace BetaSeries.API
@@ -31,6 +35,20 @@ namespace BetaSeries.API
 				headers.Add("User-Agent", UserAgent);
 
 			return headers;
+		}
+
+		protected void ValidateResponse<T>(T response)
+		{
+			var propertyInfo = response.GetType().GetProperty("Errors");
+
+			if (propertyInfo != null)
+			{
+				var errors = (List<Error>)propertyInfo.GetValue(response, null);
+
+				if (errors.Any())
+					throw new BetaSeriesErrorsException(errors);
+			}
+
 		}
 	}
 }

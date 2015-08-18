@@ -25,7 +25,7 @@ namespace BetaSeries.API.Tests
 		public async Task PostAsync()
 		{
 			var rootComment = await _commentService.PostAsync(CommentType.Show, 2410, "test");
-
+			
 			Assert.IsNotNull(rootComment.Comment.Date);
 		}
 

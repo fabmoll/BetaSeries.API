@@ -31,7 +31,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Post<RootComment>(PostUrl + options, null);
+			var response = await Post<RootComment>(PostUrl + options, null);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<RootComment> DeleteAsync(int commentId)
@@ -42,7 +46,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Delete<RootComment>(DeleteUrl + options);
+			var response = await Delete<RootComment>(DeleteUrl + options);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<CommentList> GetAsync(CommentType commentType, int id, int numberOfCommentByPage, int sinceId = 0)
@@ -59,7 +67,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Get<CommentList>(GetUrl + options);
+			var response = await Get<CommentList>(GetUrl + options);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 	}
 }

@@ -37,7 +37,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Get<RootEpisode>(DisplayUrl + options);
+			var response = await Get<RootEpisode>(DisplayUrl + options);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<ShowList> FindEpisodesToWatchASync(int showId = 0, int limit = 0, Language language = Language.None)
@@ -53,7 +57,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Get<ShowList>(EpisodeToWatchUrl + options);
+			var response = await Get<ShowList>(EpisodeToWatchUrl + options);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<RootEpisode> NoteASync(int episodeId, int note)
@@ -65,7 +73,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Post<RootEpisode>(NoteUrl + options, null);
+			var response = await Post<RootEpisode>(NoteUrl + options, null);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<RootEpisode> RemoveNoteASync(int episodeId)
@@ -76,7 +88,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Delete<RootEpisode>(NoteUrl + options);
+			var response = await Delete<RootEpisode>(NoteUrl + options);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<RootEpisode> MarkAsWatchedASync(int episodeId, bool bulk = false)
@@ -90,7 +106,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Post<RootEpisode>(WatchedUrl + options, null);
+			var response = await Post<RootEpisode>(WatchedUrl + options, null);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<RootEpisode> MarkAsWatchedASync(int episodeId, int score, bool bulk = false)
@@ -105,7 +125,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Post<RootEpisode>(WatchedUrl + options, null);
+			var response = await Post<RootEpisode>(WatchedUrl + options, null);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<RootEpisode> GetASync(int showId, int globalEpisodeNumber)
@@ -117,7 +141,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Get<RootEpisode>(SearchUrl + options);
+			var response = await Get<RootEpisode>(SearchUrl + options);
+
+			ValidateResponse(response);
+
+			return response;
 		}
 
 		public async Task<RootEpisode> MarkAsUnwatchedASync(int episodeId)
@@ -128,8 +156,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			return await Delete<RootEpisode>(WatchedUrl + options);
+			var response = await Delete<RootEpisode>(WatchedUrl + options);
 
+			ValidateResponse(response);
+
+			return response;
 		}
 	}
 }
