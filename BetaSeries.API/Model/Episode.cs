@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using BetaSeries.API.Converters;
 using Newtonsoft.Json;
 
 namespace BetaSeries.API.Model
@@ -36,7 +38,8 @@ namespace BetaSeries.API.Model
 		public string Description { get; set; }
 
 		[JsonProperty("date")]
-		public string Date { get; set; }
+		[JsonConverter(typeof(DateTimeConverterFromString))]
+		public DateTime? Date { get; set; }
 
 		[JsonProperty("note")]
 		public Note Note { get; set; }

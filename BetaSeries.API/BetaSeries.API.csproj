@@ -116,6 +116,7 @@
     <Compile Include="Attributes\Description.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="CommentService.cs" />
+    <Compile Include="Converters\DateTimeConverterFromString.cs" />
     <Compile Include="Model\CommentType.cs" />
     <Compile Include="EpisodeService.cs" />
     <Compile Include="Extensions\AttributeExtensions.cs" />

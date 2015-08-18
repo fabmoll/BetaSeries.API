@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using BetaSeries.API.Converters;
 using Newtonsoft.Json;
 
 namespace BetaSeries.API.Model
@@ -18,7 +20,8 @@ namespace BetaSeries.API.Model
 		public object Avatar { get; set; }
 
 		[JsonProperty("date")]
-		public string Date { get; set; }
+		[JsonConverter(typeof(DateTimeConverterFromString))]
+		public DateTime? Date { get; set; }
 
 		[JsonProperty("text")]
 		public string Text { get; set; }

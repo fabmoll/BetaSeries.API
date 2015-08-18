@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using BetaSeries.API.Model;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
