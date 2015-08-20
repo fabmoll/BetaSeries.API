@@ -1,9 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using BetaSeries.API.Model;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace BetaSeries.API.Tests
 {
+	[TestClass]
 	public class EpisodeServiceTest
 	{
 		private EpisodeService _episodeService;

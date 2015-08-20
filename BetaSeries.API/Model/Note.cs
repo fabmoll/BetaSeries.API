@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BetaSeries.API.Converters;
+using Newtonsoft.Json;
 
 namespace BetaSeries.API.Model
 {
@@ -8,7 +9,8 @@ namespace BetaSeries.API.Model
 		public string Total { get; set; }
 
 		[JsonProperty("mean")]
-		public int Mean { get; set; }
+		[JsonConverter(typeof(DecimalConverterFromString))]
+		public decimal Mean { get; set; }
 
 		[JsonProperty("user")]
 		public int User { get; set; }
