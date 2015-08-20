@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace BetaSeries.API.Model
 {
@@ -9,5 +10,11 @@ namespace BetaSeries.API.Model
 
 		[JsonProperty("text")]
 		public string Text { get; set; }
+	}
+
+	public class RootError
+	{
+		[JsonProperty("errors")]
+		public List<Error> Errors { get; set; }
 	}
 }

@@ -9,7 +9,7 @@ namespace BetaSeries.API
 	{
 		Task<Member> AddASync(int memberId);
 		Task<Member> RemoveASync(int memberId);
-		Task<IList<User>> ListASync(bool blocked = false);
+		Task<IList<Member>> ListASync(bool blocked = false);
 		Task<Member> BlockASync(int memberId);
 		Task<Member> UnblockASync(int memberId);
 	}
@@ -50,7 +50,7 @@ namespace BetaSeries.API
 			return response.Member;
 		}
 
-		public async Task<IList<User>> ListASync(bool blocked = false)
+		public async Task<IList<Member>> ListASync(bool blocked = false)
 		{
 			var postData = new Dictionary<string, string>();
 
@@ -59,11 +59,11 @@ namespace BetaSeries.API
 
 			var options = "?" + postData.ToQueryString();
 
-			var response = await Get<UserList>(ListUrl + options);
+			var response = await Get<MemberList>(ListUrl + options);
 
 			ValidateResponse(response);
 
-			return response.Users;
+			return response.Members;
 		}
 
 		public async Task<Member> BlockASync(int memberId)
