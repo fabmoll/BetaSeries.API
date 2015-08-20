@@ -119,6 +119,7 @@
     <Compile Include="Converters\DateTimeConverterFromString.cs" />
     <Compile Include="Converters\DecimalConverterFromString.cs" />
     <Compile Include="Exceptions\BetaSeriesErrorsException.cs" />
+    <Compile Include="FriendsService.cs" />
     <Compile Include="Model\CommentType.cs" />
     <Compile Include="EpisodeService.cs" />
     <Compile Include="Extensions\AttributeExtensions.cs" />
@@ -128,9 +129,11 @@
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Episode.cs" />
     <Compile Include="Model\Error.cs" />
+    <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Note.cs" />
     <Compile Include="Model\Show.cs" />
     <Compile Include="Model\SubTitle.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Content Include="Properties\BetaSeries.API.rd.xml" />

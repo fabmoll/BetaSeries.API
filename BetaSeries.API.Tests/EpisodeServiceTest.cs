@@ -1,9 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BetaSeries.API.Model;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace BetaSeries.API.Tests
 {
@@ -64,7 +61,7 @@ namespace BetaSeries.API.Tests
 		}
 
 		[TestMethod]
-		public async void MarkAsUnwatchedASync()
+		public async Task MarkAsUnwatchedASync()
 		{
 			var episode = await _episodeService.MarkAsUnwatchedASync(263278);
 
