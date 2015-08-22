@@ -99,6 +99,7 @@
     <Compile Include="CommentServiceTest.cs" />
     <Compile Include="EpisodeServiceTest.cs" />
     <Compile Include="FriendsServiceTest.cs" />
+    <Compile Include="MemberServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestSettings.cs" />
     <Compile Include="UnitTestApp.xaml.cs">
