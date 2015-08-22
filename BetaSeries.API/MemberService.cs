@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using BetaSeries.API.Attributes;
 using BetaSeries.API.Extensions;
 using BetaSeries.API.Model;
 
@@ -13,18 +14,27 @@ namespace BetaSeries.API
 
 	public enum Options
 	{
+		[Description("notation")]
 		Notation,
+		[Description("downloaded")]
 		Downloaded,
+		[Description("global")]
 		Global,
+		[Description("timelag")]
 		Timelag,
+		[Description("friendship")]
 		Friendship
 	}
 
 	public enum FriendshipType
 	{
+		[Description("open")]
 		Open,
+		[Description("requests")]
 		Requests,
+		[Description("friends")]
 		Friends,
+		[Description("nobody")]
 		Nobody
 	}
 
@@ -36,11 +46,12 @@ namespace BetaSeries.API
 
 		Task<RootAuth> SignupASync(string login, string password, string email);
 		Task<IList<Member>> SearchMembersASync(string login);
-		//Task<IList<Badge>> FindBadgesASync(int id);
-		//Task<IList<Notification>> FindNotificationsASync(int sinceId = 0, int number = 0,SortType sortType = SortType.Desc, bool autoDelete = false);
+		Task<IList<Badge>> FindBadgesASync(int id);
 
-		//Task<Option> GetOptions();
-		//Task<bool> SetOption(Options options, bool value, FriendshipType friendshipType = FriendshipType.Open);
+		Task<Option> GetOptions();
+		Task<OptionKey> SetOption(Options options, bool value, FriendshipType friendshipType = FriendshipType.Open);
+
+		//Task<IList<Notification>> FindNotificationsASync(int sinceId = 0, int number = 0, SortType sortType = SortType.Desc, bool autoDelete = false);
 	}
 
 	public class MemberService : BaseService, IMemberService
@@ -142,5 +153,78 @@ namespace BetaSeries.API
 
 			return response.Members;
 		}
+
+		public async Task<IList<Badge>> FindBadgesASync(int id)
+		{
+			var postData = new Dictionary<string, string>();
+
+			postData.Add("id", id);
+
+			var options = "?" + postData.ToQueryString();
+
+			var response = await Get<RootBadge>(BadgeUrl + options);
+
+			ValidateResponse(response);
+
+			return response.Badges;
+		}
+
+		public async Task<Option> GetOptions()
+		{
+			var response = await Get<RootOption>(OptionsUrl);
+
+			ValidateResponse(response);
+
+			return response.Option;
+
+		}
+
+		public async Task<OptionKey> SetOption(Options options, bool value, FriendshipType friendshipType = FriendshipType.Open)
+		{
+			var postData = new Dictionary<string, string>();
+
+			if (options != Options.Friendship)
+				postData.Add("value", value ? 1 : 0);
+			else
+			{
+				postData.Add("value", friendshipType.GetDescription().ToLower());
+			}
+
+			postData.Add("name", options.GetDescription().ToLower());
+
+			var parameter = "?" + postData.ToQueryString();
+
+			var response = await Post<RootOptionKey>(OptionUrl + parameter, null);
+
+			ValidateResponse(response);
+
+			return response.OptionKey;
+		}
+
+		//public async Task<IList<Notification>> FindNotificationsASync(int sinceId = 0, int number = 0, SortType sortType = SortType.Desc, bool autoDelete = false)
+		//{
+		//	var postData = new Dictionary<string, string>();
+
+		//	if (sinceId != 0)
+		//		postData.Add("since_id", sinceId);
+
+		//	if (number != 0)
+		//		postData.Add("number", number);
+
+		//	if (sortType != SortType.Desc)
+		//		postData.Add("sort", "ASC");
+
+		//	if (autoDelete)
+		//		postData.Add("auto_delete", "1");
+
+		//	var options = "?" + postData.ToQueryString();
+
+		//	var response = await Get<RootNotification>(NotificationUrl + options);
+
+		//	ValidateResponse(response);
+
+		//	return response.Notifications;
+
+		//}
 	}
 }

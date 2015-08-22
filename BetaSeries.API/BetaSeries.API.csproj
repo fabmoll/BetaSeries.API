@@ -122,6 +122,7 @@
     <Compile Include="FriendsService.cs" />
     <Compile Include="Md5.cs" />
     <Compile Include="MemberService.cs" />
+    <Compile Include="Model\Badge.cs" />
     <Compile Include="Model\CommentType.cs" />
     <Compile Include="EpisodeService.cs" />
     <Compile Include="Extensions\AttributeExtensions.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Model\Error.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Note.cs" />
+    <Compile Include="Model\Option.cs" />
     <Compile Include="Model\RootAuth.cs" />
     <Compile Include="Model\Show.cs" />
     <Compile Include="Model\SubTitle.cs" />

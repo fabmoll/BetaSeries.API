@@ -9,7 +9,7 @@ Pour pouvoir utiliser l'API, il est nécessaire de faire une demande de clé API
 
     var memberService = new MemberService { ApiKey = "VOTRE_CLE_API", UserAgent = "VOTRE_USER_AGENT };
     var rootAuth = memberService.AuthASync("VOTRE_LOGIN", "VOTRE_MOT_DE_PASSE");
-L'objet **rootAuth** contient une la propriété **Token** qui vous sera utile lors de l'utilisation de l'API afin d'intéragir avec votre compte BetaSéries.
+L'objet **rootAuth** contient la propriété **Token** qui vous sera utile lors de l'utilisation de l'API afin d'intéragir avec votre compte BetaSéries.
 
 **Détail d'un épisode**
 

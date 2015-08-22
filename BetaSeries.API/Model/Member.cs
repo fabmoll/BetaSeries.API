@@ -70,26 +70,7 @@ namespace BetaSeries.API.Model
 		[JsonProperty("options")]
 		public Options Options { get; set; }
 	}
-
-	public class Options
-	{
-		[JsonProperty("downloaded")]
-		public bool Downloaded { get; set; }
-
-		[JsonProperty("notation")]
-		public bool Notation { get; set; }
-
-		[JsonProperty("timelag")]
-		public bool Timelag { get; set; }
-
-		[JsonProperty("global")]
-		public bool Global { get; set; }
-
-		[JsonProperty("friendship")]
-		public string Friendship { get; set; }
-	}
-
-
+	
 	public class RootMember
 	{
 		[JsonProperty("member")]
