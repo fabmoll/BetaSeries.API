@@ -14815,7 +14815,8 @@
   "projectFileDependencyGroups": {
     "": [
       "Kulman.WPA81.BaseRestService >= 1.1.5",
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
+      "JetBrains.Annotations >= 9.1.1"
     ],
     "UAP,Version=v10.0": []
   }
