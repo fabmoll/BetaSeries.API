@@ -156,15 +156,6 @@ namespace BetaSeries.API.Model
 		public string ResourceUrl { get; set; }
 	}
 
-	public class SeasonsDetail
-	{
-		[JsonProperty("number")]
-		public int Number { get; set; }
-
-		[JsonProperty("episodes")]
-		public int Episodes { get; set; }
-	}
-
 	public class MemberList
 	{
 		[JsonProperty("users")]

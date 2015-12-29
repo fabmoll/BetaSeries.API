@@ -124,6 +124,7 @@
     <Compile Include="MemberService.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="Model\Badge.cs" />
+    <Compile Include="Model\Character.cs" />
     <Compile Include="Model\CommentType.cs" />
     <Compile Include="EpisodeService.cs" />
     <Compile Include="Extensions\AttributeExtensions.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="PlanningService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ShowService.cs" />
     <Content Include="Properties\BetaSeries.API.rd.xml" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
