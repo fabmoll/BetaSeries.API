@@ -141,6 +141,7 @@
     <Compile Include="Model\Show.cs" />
     <Compile Include="Model\SubTitle.cs" />
     <Compile Include="PictureService.cs" />
+    <Compile Include="PlanningService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Content Include="Properties\BetaSeries.API.rd.xml" />
