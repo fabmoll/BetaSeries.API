@@ -1,8 +1,8 @@
 ﻿{
   "dependencies": {
-    "Kulman.WPA81.BaseRestService": "1.1.5",
+    "Kulman.WPA81.BaseRestService": "1.2.3",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "JetBrains.Annotations": "9.1.1"
+    "Newtonsoft.Json": "8.0.1"
   },
   "frameworks": {
     "uap10.0": {}
