@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BetaSeries.API</id>
+    <version>$version$</version>
+    <authors>Fabrice Moll</authors>
+    <owners>Fabrice Moll</owners>
+    <projectUrl>https://github.com/fabmoll/BetaSeries.API</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Universal Windows 10 C# API pour BetaSéries</description>
+    <copyright>Copyright 2015 - 2016</copyright>
+    <tags>BetaSéries TVShow</tags>
+    <dependencies>
+      <dependency id="Kulman.WPA81.BaseRestService" version="1.2.3" />
+      <dependency id="Newtonsoft.Json" version="8.0.1" />
+      <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="5.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+       <file src="BetaSeries.API.dll" target="lib" />
+       <file src="BetaSeries.API.pdb" target="lib" />       
+   </files>
+</package>
