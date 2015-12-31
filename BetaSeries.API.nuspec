@@ -17,6 +17,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="BetaSeries.API\bin\$configuration$\BetaSeries.API.*" target="lib"/>
+    <file src="BetaSeries.API\bin\$configuration$\BetaSeries.API.*" target="lib\net45"/>
   </files>
 </package>
