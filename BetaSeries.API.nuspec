@@ -18,8 +18,8 @@
   </metadata>
   <files>
      <!-- $bin => bin\$version$\$platform$\$configugration$ -->
-     <file src="$bin$\BetaSeries.API.dll" target="lib\.NETCore50" />
-     <file src="$bin$\BetaSeries.API.pdb" target="lib\.NETCore50" />
+     <file src="BetaSeries.API\bin\%config%\BetaSeries.API.dll" target="lib\.NETCore50" />
+     <file src="BetaSeries.API\bin\%config%\BetaSeries.API.pdb" target="lib\.NETCore50" />
   </files>
 
 </package>

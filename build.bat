@@ -17,6 +17,8 @@ REM Build Solution
 
 REM Package
 mkdir Build
+mkdir Build\lib\
+mkdir Build\lib\.NETCore50
 nuget pack BetaSeries.API.nuspec -symbols -o Build -p Configuration=%config% %version%
 copy BetaSeries.API\bin\%config%\*.dll Build
 copy BetaSeries.API\bin\%config%\*.pdb Build
