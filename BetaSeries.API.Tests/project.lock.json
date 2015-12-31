@@ -3,6 +3,13 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "BetaSeries.API/1.0.0": {
+        "dependencies": {
+          "Kulman.WPA81.BaseRestService": "[1.2.3, )",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+          "Newtonsoft.Json": "[8.0.1, )"
+        }
+      },
       "Kulman.WPA81.BaseRestService/1.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "[6.0.8, )"
@@ -1557,6 +1564,13 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "BetaSeries.API/1.0.0": {
+        "dependencies": {
+          "Kulman.WPA81.BaseRestService": "[1.2.3, )",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+          "Newtonsoft.Json": "[8.0.1, )"
+        }
+      },
       "Kulman.WPA81.BaseRestService/1.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "[6.0.8, )"
@@ -3201,6 +3215,13 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "BetaSeries.API/1.0.0": {
+        "dependencies": {
+          "Kulman.WPA81.BaseRestService": "[1.2.3, )",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+          "Newtonsoft.Json": "[8.0.1, )"
+        }
+      },
       "Kulman.WPA81.BaseRestService/1.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "[6.0.8, )"
@@ -4817,6 +4838,13 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "BetaSeries.API/1.0.0": {
+        "dependencies": {
+          "Kulman.WPA81.BaseRestService": "[1.2.3, )",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+          "Newtonsoft.Json": "[8.0.1, )"
+        }
+      },
       "Kulman.WPA81.BaseRestService/1.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "[6.0.8, )"
@@ -6466,6 +6494,13 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "BetaSeries.API/1.0.0": {
+        "dependencies": {
+          "Kulman.WPA81.BaseRestService": "[1.2.3, )",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+          "Newtonsoft.Json": "[8.0.1, )"
+        }
+      },
       "Kulman.WPA81.BaseRestService/1.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "[6.0.8, )"
@@ -8082,6 +8117,13 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "BetaSeries.API/1.0.0": {
+        "dependencies": {
+          "Kulman.WPA81.BaseRestService": "[1.2.3, )",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+          "Newtonsoft.Json": "[8.0.1, )"
+        }
+      },
       "Kulman.WPA81.BaseRestService/1.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "[6.0.8, )"
@@ -9731,6 +9773,13 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "BetaSeries.API/1.0.0": {
+        "dependencies": {
+          "Kulman.WPA81.BaseRestService": "[1.2.3, )",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+          "Newtonsoft.Json": "[8.0.1, )"
+        }
+      },
       "Kulman.WPA81.BaseRestService/1.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "[6.0.8, )"
@@ -11348,6 +11397,97 @@
     }
   },
   "libraries": {
+    "BetaSeries.API/1.0.0": {
+      "sha512": "NZy610g5Ar815pVVOStvpuQjX6zlgBo90aXQ61+iuPVhaWc8/5EspHdYRsh1VQfVNYLuhdBAIHJHoxEQwij7HQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "BetaSeries.API.nuspec",
+        "BetaSeries.API.sln",
+        "BetaSeries.API.Tests/Assets/LockScreenLogo.scale-200.png",
+        "BetaSeries.API.Tests/Assets/SplashScreen.scale-200.png",
+        "BetaSeries.API.Tests/Assets/Square150x150Logo.scale-200.png",
+        "BetaSeries.API.Tests/Assets/Square44x44Logo.scale-200.png",
+        "BetaSeries.API.Tests/Assets/Square44x44Logo.targetsize-24_altform-unplated.png",
+        "BetaSeries.API.Tests/Assets/StoreLogo.png",
+        "BetaSeries.API.Tests/Assets/Wide310x150Logo.scale-200.png",
+        "BetaSeries.API.Tests/BetaSeries.API.Tests.csproj",
+        "BetaSeries.API.Tests/CommentServiceTest.cs",
+        "BetaSeries.API.Tests/EpisodeServiceTest.cs",
+        "BetaSeries.API.Tests/FriendsServiceTest.cs",
+        "BetaSeries.API.Tests/MemberServiceTest.cs",
+        "BetaSeries.API.Tests/Package.appxmanifest",
+        "BetaSeries.API.Tests/project.json",
+        "BetaSeries.API.Tests/project.lock.json",
+        "BetaSeries.API.Tests/Properties/AssemblyInfo.cs",
+        "BetaSeries.API.Tests/Properties/UnitTestApp.rd.xml",
+        "BetaSeries.API.Tests/TestSettings.cs",
+        "BetaSeries.API.Tests/UnitTestApp.xaml",
+        "BetaSeries.API.Tests/UnitTestApp.xaml.cs",
+        "BetaSeries.API/Attributes/Description.cs",
+        "BetaSeries.API/BaseService.cs",
+        "BetaSeries.API/BetaSeries.API.csproj",
+        "BetaSeries.API/bin/Release/BetaSeries.API.dll",
+        "BetaSeries.API/bin/Release/BetaSeries.API.pri",
+        "BetaSeries.API/CommentService.cs",
+        "BetaSeries.API/Converters/DateTimeConverterFromString.cs",
+        "BetaSeries.API/Converters/DecimalConverterFromString.cs",
+        "BetaSeries.API/EpisodeService.cs",
+        "BetaSeries.API/Exceptions/BetaSeriesErrorsException.cs",
+        "BetaSeries.API/Extensions/AttributeExtensions.cs",
+        "BetaSeries.API/Extensions/DictionaryExtensions.cs",
+        "BetaSeries.API/Extensions/ListExtensions.cs",
+        "BetaSeries.API/FriendsService.cs",
+        "BetaSeries.API/Md5.cs",
+        "BetaSeries.API/MemberService.cs",
+        "BetaSeries.API/MessageService.cs",
+        "BetaSeries.API/Model/Badge.cs",
+        "BetaSeries.API/Model/Character.cs",
+        "BetaSeries.API/Model/Comment.cs",
+        "BetaSeries.API/Model/CommentType.cs",
+        "BetaSeries.API/Model/Episode.cs",
+        "BetaSeries.API/Model/Error.cs",
+        "BetaSeries.API/Model/Language.cs",
+        "BetaSeries.API/Model/Member.cs",
+        "BetaSeries.API/Model/Message.cs",
+        "BetaSeries.API/Model/Note.cs",
+        "BetaSeries.API/Model/Option.cs",
+        "BetaSeries.API/Model/RootAuth.cs",
+        "BetaSeries.API/Model/Show.cs",
+        "BetaSeries.API/Model/SubTitle.cs",
+        "BetaSeries.API/obj/Release/BetaSeries.API.csproj.FileListAbsolute.txt",
+        "BetaSeries.API/obj/Release/BetaSeries.API.csprojResolveAssemblyReference.cache",
+        "BetaSeries.API/obj/Release/BetaSeries.API.dll",
+        "BetaSeries.API/obj/Release/embed.resfiles",
+        "BetaSeries.API/obj/Release/embed.resfiles.intermediate",
+        "BetaSeries.API/obj/Release/layout.resfiles",
+        "BetaSeries.API/obj/Release/layout.resfiles.intermediate",
+        "BetaSeries.API/obj/Release/MultipleQualifiersPerDimensionFound.txt",
+        "BetaSeries.API/obj/Release/pri.resfiles",
+        "BetaSeries.API/obj/Release/pri.resfiles.intermediate",
+        "BetaSeries.API/obj/Release/priconfig.xml",
+        "BetaSeries.API/obj/Release/priconfig.xml.intermediate",
+        "BetaSeries.API/obj/Release/qualifiers.txt",
+        "BetaSeries.API/obj/Release/qualifiers.txt.intermediate",
+        "BetaSeries.API/obj/Release/resources.resfiles",
+        "BetaSeries.API/obj/Release/resources.resfiles.intermediate",
+        "BetaSeries.API/PictureService.cs",
+        "BetaSeries.API/PlanningService.cs",
+        "BetaSeries.API/project.json",
+        "BetaSeries.API/project.lock.json",
+        "BetaSeries.API/Properties/AssemblyInfo.cs",
+        "BetaSeries.API/Properties/BetaSeries.API.rd.xml",
+        "BetaSeries.API/Settings.cs",
+        "BetaSeries.API/ShowService.cs",
+        "build.bat",
+        "Build/BetaSeries.API.dll",
+        "NuGet.config",
+        "nuget.exe",
+        "package/services/metadata/core-properties/7ecb5b9a495a4fcc9979e298d56894d6.psmdcp",
+        "README.md"
+      ]
+    },
     "Kulman.WPA81.BaseRestService/1.2.3": {
       "sha512": "AoeCRwCkVcwCWkvWXFGz3Yy3JFiEllHqHfPn21TJ0Y7oXjo+S6Aeh/+bV+ksqv08CEP8hSHa9FqVqzApS9fD9A==",
       "type": "Package",
