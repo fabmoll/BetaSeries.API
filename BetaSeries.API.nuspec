@@ -17,6 +17,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="BetaSeries.API\bin\$configuration$\BetaSeries.API.*" target="lib\net45"/>
+    <file src="BetaSeries.API\bin\$configuration$\BetaSeries.API.*" target="lib\.NETCore50"/>
+    <file src="Build\lib\BetaSeries.API.*" target="lib\.NETCore50"/>
   </files>
 </package>
