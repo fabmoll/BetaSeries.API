@@ -17,6 +17,7 @@ REM Build Solution
 
 REM Package
 mkdir Build
-nuget pack BetaSeries.API.nuspec
-copy BetaSeries.API\bin\%config%\*.dll Build
-copy BetaSeries.API\bin\%config%\*.pdb Build
+mkdir Build\lib
+nuget pack BetaSeries.API.nuspec -NoPackageAnalysis -verbosity detailed -o Build -Version %version% -p Configuration="%config%"
+copy BetaSeries.API\bin\%config%\*.dll Build\lib
+copy BetaSeries.API\bin\%config%\*.pdb Build\lib
