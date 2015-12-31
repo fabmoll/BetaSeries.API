@@ -17,6 +17,6 @@ REM Build Solution
 
 REM Package
 mkdir Build
-nuget pack "BetaSeries.API\BetaSeries.API.csproj" -symbols -o Build -p Configuration=%config% %version%
+nuget pack BetaSeries.API.nuspec
 copy BetaSeries.API\bin\%config%\*.dll Build
 copy BetaSeries.API\bin\%config%\*.pdb Build
