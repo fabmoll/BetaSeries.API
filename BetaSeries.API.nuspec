@@ -18,7 +18,6 @@
   </metadata>
   <files>
     <file src="BetaSeries.API\bin\$configuration$\BetaSeries.API.*" target="lib\.NETCore50"/>
-    <file src="Build\lib\BetaSeries.API.*" target="lib\.NETCore50"/>
     <file src="BetaSeries.API\Properties\BetaSeries.API.rd.xml" target="lib\.NETCore50\BetaSeries.API\Properties"/>
   </files>
 </package>
