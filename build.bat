@@ -21,4 +21,3 @@ mkdir Build\lib
 nuget pack "BetaSeries.API.nuspec" -verbosity detailed -symbols -o Build -p Configuration=%config% %version%
 copy BetaSeries.API\bin\%config%\*.dll Build\lib
 copy BetaSeries.API\bin\%config%\*.pdb Build\lib
-REM nuget push Build\BetaSeries.API.%version%.symbols.nupkg b75dec7e-a77a-4561-b520-75bc6aba2dc5 -Source https://www.myget.org/F/fabmoll/api/v2/package 
