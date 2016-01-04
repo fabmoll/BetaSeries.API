@@ -10,10 +10,7 @@
           "Newtonsoft.Json": "[8.0.1, )"
         }
       },
-      "Kulman.WPA81.BaseRestService/1.2.3": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )"
-        },
+      "Kulman.WPA81.BaseRestService/1.3.0": {
         "compile": {
           "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll": {}
         },
@@ -1571,10 +1568,7 @@
           "Newtonsoft.Json": "[8.0.1, )"
         }
       },
-      "Kulman.WPA81.BaseRestService/1.2.3": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )"
-        },
+      "Kulman.WPA81.BaseRestService/1.3.0": {
         "compile": {
           "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll": {}
         },
@@ -3222,10 +3216,7 @@
           "Newtonsoft.Json": "[8.0.1, )"
         }
       },
-      "Kulman.WPA81.BaseRestService/1.2.3": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )"
-        },
+      "Kulman.WPA81.BaseRestService/1.3.0": {
         "compile": {
           "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll": {}
         },
@@ -4845,10 +4836,7 @@
           "Newtonsoft.Json": "[8.0.1, )"
         }
       },
-      "Kulman.WPA81.BaseRestService/1.2.3": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )"
-        },
+      "Kulman.WPA81.BaseRestService/1.3.0": {
         "compile": {
           "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll": {}
         },
@@ -6501,10 +6489,7 @@
           "Newtonsoft.Json": "[8.0.1, )"
         }
       },
-      "Kulman.WPA81.BaseRestService/1.2.3": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )"
-        },
+      "Kulman.WPA81.BaseRestService/1.3.0": {
         "compile": {
           "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll": {}
         },
@@ -8124,10 +8109,7 @@
           "Newtonsoft.Json": "[8.0.1, )"
         }
       },
-      "Kulman.WPA81.BaseRestService/1.2.3": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )"
-        },
+      "Kulman.WPA81.BaseRestService/1.3.0": {
         "compile": {
           "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll": {}
         },
@@ -9780,10 +9762,7 @@
           "Newtonsoft.Json": "[8.0.1, )"
         }
       },
-      "Kulman.WPA81.BaseRestService/1.2.3": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )"
-        },
+      "Kulman.WPA81.BaseRestService/1.3.0": {
         "compile": {
           "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll": {}
         },
@@ -11488,8 +11467,8 @@
         "README.md"
       ]
     },
-    "Kulman.WPA81.BaseRestService/1.2.3": {
-      "sha512": "AoeCRwCkVcwCWkvWXFGz3Yy3JFiEllHqHfPn21TJ0Y7oXjo+S6Aeh/+bV+ksqv08CEP8hSHa9FqVqzApS9fD9A==",
+    "Kulman.WPA81.BaseRestService/1.3.0": {
+      "sha512": "De0+H4P4gLtVZkRO4rNVac5KcEFPkgxbour89GPFoDxLxdGW5dp4HSj/IkIwdjF9bem55cd8epok2iS32S/79A==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -11497,7 +11476,7 @@
         "Kulman.WPA81.BaseRestService.nuspec",
         "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.dll",
         "lib/portable-win81+wpa81+wp81/Kulman.WPA81.BaseRestService.XML",
-        "package/services/metadata/core-properties/a4398eb791264f9f8464053ce374fc89.psmdcp"
+        "package/services/metadata/core-properties/1f5b21c988b241829babd490f6ec6dad.psmdcp"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -14874,7 +14853,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Kulman.WPA81.BaseRestService >= 1.2.3",
+      "Kulman.WPA81.BaseRestService >= 1.3.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0"
     ],
     "UAP,Version=v10.0": []

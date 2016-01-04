@@ -1,230 +1,244 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BetaSeries.API.Attributes;
 using BetaSeries.API.Extensions;
 using BetaSeries.API.Model;
+using Kulman.WPA81.BaseRestService.Services.Exceptions;
 
 namespace BetaSeries.API
 {
-	public enum SortType
-	{
-		Asc,
-		Desc
-	}
-
-	public enum Options
-	{
-		[Description("notation")]
-		Notation,
-		[Description("downloaded")]
-		Downloaded,
-		[Description("global")]
-		Global,
-		[Description("timelag")]
-		Timelag,
-		[Description("friendship")]
-		Friendship
-	}
+    public enum SortType
+    {
+        Asc,
+        Desc
+    }
+
+    public enum Options
+    {
+        [Description("notation")]
+        Notation,
+        [Description("downloaded")]
+        Downloaded,
+        [Description("global")]
+        Global,
+        [Description("timelag")]
+        Timelag,
+        [Description("friendship")]
+        Friendship
+    }
+
+    public enum FriendshipType
+    {
+        [Description("open")]
+        Open,
+        [Description("requests")]
+        Requests,
+        [Description("friends")]
+        Friends,
+        [Description("nobody")]
+        Nobody
+    }
+
+    public interface IMemberService
+    {
+        Task<RootAuth> AuthASync(string login, string password);
+        Task<bool> DisconnectASync(string token);
+        Task<Member> InfosASync(int id = 0, bool summary = false);
+
+        Task<RootAuth> SignupASync(string login, string password, string email);
+        Task<IList<Member>> SearchMembersASync(string login);
+        Task<IList<Badge>> FindBadgesASync(int id);
 
-	public enum FriendshipType
-	{
-		[Description("open")]
-		Open,
-		[Description("requests")]
-		Requests,
-		[Description("friends")]
-		Friends,
-		[Description("nobody")]
-		Nobody
-	}
+        Task<Option> GetOptions();
+        Task<OptionKey> SetOption(Options options, bool value, FriendshipType friendshipType = FriendshipType.Open);
 
-	public interface IMemberService
-	{
-		Task<RootAuth> AuthASync(string login, string password);
-		Task<bool> DisconnectASync(string token);
-		Task<Member> InfosASync(int id = 0, bool summary = false);
+        //Task<IList<Notification>> FindNotificationsASync(int sinceId = 0, int number = 0, SortType sortType = SortType.Desc, bool autoDelete = false);
+    }
 
-		Task<RootAuth> SignupASync(string login, string password, string email);
-		Task<IList<Member>> SearchMembersASync(string login);
-		Task<IList<Badge>> FindBadgesASync(int id);
+    public class MemberService : BaseService, IMemberService
+    {
+        private const string AuthUrl = "/members/auth";
+        private const string DisconnectUrl = "/members/destroy";
+        private const string InfoUrl = "/members/infos";
+        private const string BadgeUrl = "/members/badges";
+        private const string SignupUrl = "/members/signup";
+        private const string SearchUrl = "/members/search";
+        private const string NotificationUrl = "/members/notifications";
+        private const string OptionsUrl = "/members/options";
+        private const string OptionUrl = "/members/option";
 
-		Task<Option> GetOptions();
-		Task<OptionKey> SetOption(Options options, bool value, FriendshipType friendshipType = FriendshipType.Open);
+        public async Task<RootAuth> AuthASync(string login, string password)
+        {
+            var postData = new Dictionary<string, string>();
 
-		//Task<IList<Notification>> FindNotificationsASync(int sinceId = 0, int number = 0, SortType sortType = SortType.Desc, bool autoDelete = false);
-	}
+            postData.Add("login", login);
 
-	public class MemberService : BaseService, IMemberService
-	{
-		private const string AuthUrl = "/members/auth";
-		private const string DisconnectUrl = "/members/destroy";
-		private const string InfoUrl = "/members/infos";
-		private const string BadgeUrl = "/members/badges";
-		private const string SignupUrl = "/members/signup";
-		private const string SearchUrl = "/members/search";
-		private const string NotificationUrl = "/members/notifications";
-		private const string OptionsUrl = "/members/options";
-		private const string OptionUrl = "/members/option";
+            var md5Password = MD5CryptoServiceProvider.GetMd5String(password);
 
-		public async Task<RootAuth> AuthASync(string login, string password)
-		{
-			var postData = new Dictionary<string, string>();
+            postData.Add("password", md5Password);
 
-			postData.Add("login", login);
+            var options = "?" + postData.ToQueryString();
 
-			var md5Password = MD5CryptoServiceProvider.GetMd5String(password);
+            RootAuth response;
 
-			postData.Add("password", md5Password);
+            try
+            {
+                response = await Post<RootAuth>(AuthUrl + options, null);
 
-			var options = "?" + postData.ToQueryString();
+                ValidateResponse(response);
+            }
+            catch (ConnectionException ex)
+            {
+                if (!string.IsNullOrEmpty(ex.ResponseContent))
+                    ValidateResponse(ex.ResponseContent);
 
-			var response = await Post<RootAuth>(AuthUrl + options, null);
+                throw;
+            }
+            
+            return response;
+        }
 
-			ValidateResponse(response);
+        public async Task<bool> DisconnectASync(string token)
+        {
+            var postData = new Dictionary<string, string>();
 
-			return response;
-		}
+            postData.Add("token", token);
 
-		public async Task<bool> DisconnectASync(string token)
-		{
-			var postData = new Dictionary<string, string>();
+            var options = "?" + postData.ToQueryString();
 
-			postData.Add("token", token);
+            var response = await Post<RootError>(DisconnectUrl + options, null);
 
-			var options = "?" + postData.ToQueryString();
+            ValidateResponse(response);
 
-			var response = await Post<RootError>(DisconnectUrl + options, null);
+            return true;
+        }
 
-			ValidateResponse(response);
+        public async Task<Member> InfosASync(int id = 0, bool summary = false)
+        {
+            var postData = new Dictionary<string, string>();
 
-			return true;
-		}
+            if (id != 0)
+                postData.Add("id", id);
 
-		public async Task<Member> InfosASync(int id = 0, bool summary = false)
-		{
-			var postData = new Dictionary<string, string>();
+            if (summary)
+                postData.Add("summary", "1");
 
-			if (id != 0)
-				postData.Add("id", id);
+            var options = "?" + postData.ToQueryString();
 
-			if (summary)
-				postData.Add("summary", "1");
+            var response = await Get<RootMember>(InfoUrl + options);
 
-			var options = "?" + postData.ToQueryString();
+            ValidateResponse(response);
 
-			var response = await Get<RootMember>(InfoUrl + options);
+            return response.Member;
+        }
 
-			ValidateResponse(response);
+        public async Task<RootAuth> SignupASync(string login, string password, string email)
+        {
+            var postData = new Dictionary<string, string>();
 
-			return response.Member;
-		}
+            postData.Add("login", login);
 
-		public async Task<RootAuth> SignupASync(string login, string password, string email)
-		{
-			var postData = new Dictionary<string, string>();
+            var md5Password = MD5CryptoServiceProvider.GetMd5String(password);
 
-			postData.Add("login", login);
+            postData.Add("password", md5Password);
+            postData.Add("email", email);
 
-			var md5Password = MD5CryptoServiceProvider.GetMd5String(password);
+            var options = "?" + postData.ToQueryString();
 
-			postData.Add("password", md5Password);
-			postData.Add("email", email);
+            var response = await Post<RootAuth>(SignupUrl + options, null);
 
-			var options = "?" + postData.ToQueryString();
+            ValidateResponse(response);
 
-			var response = await Post<RootAuth>(SignupUrl + options, null);
+            return response;
+        }
 
-			ValidateResponse(response);
+        public async Task<IList<Member>> SearchMembersASync(string login)
+        {
+            var postData = new Dictionary<string, string>();
 
-			return response;
-		}
+            postData.Add("login", login + "%");
 
-		public async Task<IList<Member>> SearchMembersASync(string login)
-		{
-			var postData = new Dictionary<string, string>();
+            var options = "?" + postData.ToQueryString();
 
-			postData.Add("login", login + "%");
+            var response = await Get<MemberList>(SearchUrl + options);
 
-			var options = "?" + postData.ToQueryString();
+            ValidateResponse(response);
 
-			var response = await Get<MemberList>(SearchUrl + options);
+            return response.Members;
+        }
 
-			ValidateResponse(response);
+        public async Task<IList<Badge>> FindBadgesASync(int id)
+        {
+            var postData = new Dictionary<string, string>();
 
-			return response.Members;
-		}
+            postData.Add("id", id);
 
-		public async Task<IList<Badge>> FindBadgesASync(int id)
-		{
-			var postData = new Dictionary<string, string>();
+            var options = "?" + postData.ToQueryString();
 
-			postData.Add("id", id);
+            var response = await Get<RootBadge>(BadgeUrl + options);
 
-			var options = "?" + postData.ToQueryString();
+            ValidateResponse(response);
 
-			var response = await Get<RootBadge>(BadgeUrl + options);
+            return response.Badges;
+        }
 
-			ValidateResponse(response);
+        public async Task<Option> GetOptions()
+        {
+            var response = await Get<RootOption>(OptionsUrl);
 
-			return response.Badges;
-		}
+            ValidateResponse(response);
 
-		public async Task<Option> GetOptions()
-		{
-			var response = await Get<RootOption>(OptionsUrl);
+            return response.Option;
 
-			ValidateResponse(response);
+        }
 
-			return response.Option;
+        public async Task<OptionKey> SetOption(Options options, bool value, FriendshipType friendshipType = FriendshipType.Open)
+        {
+            var postData = new Dictionary<string, string>();
 
-		}
+            if (options != Options.Friendship)
+                postData.Add("value", value ? 1 : 0);
+            else
+            {
+                postData.Add("value", friendshipType.GetDescription().ToLower());
+            }
 
-		public async Task<OptionKey> SetOption(Options options, bool value, FriendshipType friendshipType = FriendshipType.Open)
-		{
-			var postData = new Dictionary<string, string>();
+            postData.Add("name", options.GetDescription().ToLower());
 
-			if (options != Options.Friendship)
-				postData.Add("value", value ? 1 : 0);
-			else
-			{
-				postData.Add("value", friendshipType.GetDescription().ToLower());
-			}
+            var parameter = "?" + postData.ToQueryString();
 
-			postData.Add("name", options.GetDescription().ToLower());
+            var response = await Post<RootOptionKey>(OptionUrl + parameter, null);
 
-			var parameter = "?" + postData.ToQueryString();
+            ValidateResponse(response);
 
-			var response = await Post<RootOptionKey>(OptionUrl + parameter, null);
+            return response.OptionKey;
+        }
 
-			ValidateResponse(response);
+        //public async Task<IList<Notification>> FindNotificationsASync(int sinceId = 0, int number = 0, SortType sortType = SortType.Desc, bool autoDelete = false)
+        //{
+        //	var postData = new Dictionary<string, string>();
 
-			return response.OptionKey;
-		}
+        //	if (sinceId != 0)
+        //		postData.Add("since_id", sinceId);
 
-		//public async Task<IList<Notification>> FindNotificationsASync(int sinceId = 0, int number = 0, SortType sortType = SortType.Desc, bool autoDelete = false)
-		//{
-		//	var postData = new Dictionary<string, string>();
+        //	if (number != 0)
+        //		postData.Add("number", number);
 
-		//	if (sinceId != 0)
-		//		postData.Add("since_id", sinceId);
+        //	if (sortType != SortType.Desc)
+        //		postData.Add("sort", "ASC");
 
-		//	if (number != 0)
-		//		postData.Add("number", number);
+        //	if (autoDelete)
+        //		postData.Add("auto_delete", "1");
 
-		//	if (sortType != SortType.Desc)
-		//		postData.Add("sort", "ASC");
+        //	var options = "?" + postData.ToQueryString();
 
-		//	if (autoDelete)
-		//		postData.Add("auto_delete", "1");
+        //	var response = await Get<RootNotification>(NotificationUrl + options);
 
-		//	var options = "?" + postData.ToQueryString();
+        //	ValidateResponse(response);
 
-		//	var response = await Get<RootNotification>(NotificationUrl + options);
+        //	return response.Notifications;
 
-		//	ValidateResponse(response);
-
-		//	return response.Notifications;
-
-		//}
-	}
+        //}
+    }
 }
