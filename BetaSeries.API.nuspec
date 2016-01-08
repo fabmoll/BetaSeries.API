@@ -11,7 +11,7 @@
     <copyright>Copyright 2015 - 2016</copyright>
     <tags>BetaSéries TVShow</tags>
     <dependencies>
-      <dependency id="Kulman.WPA81.BaseRestService" version="1.2.3" />
+      <dependency id="Kulman.WPA81.BaseRestService" version="1.3.0" />
       <dependency id="Newtonsoft.Json" version="8.0.1" />
       <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="5.0.0" />
     </dependencies>
