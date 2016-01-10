@@ -6,7 +6,7 @@ using BetaSeries.API.Model;
 
 namespace BetaSeries.API
 {
-    public interface IPlanningService
+    public interface IPlanningService : IBaseService
     {
         Task<IList<Episode>> GetForMemberAsync(string token, bool onlyUnseen, DateTime? monthPlanning);
         Task<IList<Episode>> GetForMemberAsync(int userId, bool onlyUnseen, DateTime? monthPlanning);

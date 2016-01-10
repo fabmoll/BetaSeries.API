@@ -5,7 +5,7 @@ using BetaSeries.API.Model;
 
 namespace BetaSeries.API
 {
-	public interface IFriendsService
+	public interface IFriendsService : IBaseService
 	{
 		Task<Member> AddASync(int memberId);
 		Task<Member> RemoveASync(int memberId);

@@ -5,7 +5,7 @@ using BetaSeries.API.Model;
 
 namespace BetaSeries.API
 {
-	public interface ICommentService
+	public interface ICommentService : IBaseService
 	{
 		Task<Comment> PostAsync(CommentType commentType, int id, string text, int inReplyTo = 0);
 		Task<Comment> DeleteAsync(int commentId);

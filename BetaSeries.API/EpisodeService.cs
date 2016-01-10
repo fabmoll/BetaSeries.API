@@ -5,7 +5,7 @@ using BetaSeries.API.Model;
 
 namespace BetaSeries.API
 {
-	public interface IEpisodeService
+	public interface IEpisodeService : IBaseService
 	{
 		Task<Episode> GetASync(int episodeId, bool getSubTitles = false);
 		Task<IList<Show>> FindEpisodesToWatchASync(int showId = 0, int limit = 0, Language language = Language.None);

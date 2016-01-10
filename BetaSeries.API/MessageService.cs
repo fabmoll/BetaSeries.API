@@ -5,7 +5,7 @@ using BetaSeries.API.Model;
 
 namespace BetaSeries.API
 {
-	public interface IMessageService
+	public interface IMessageService : IBaseService
 	{
 		Task<IList<Message>> FindMessagesASync(int page = 0);
 		Task<IList<Message>> GetDiscussionASync(int id);

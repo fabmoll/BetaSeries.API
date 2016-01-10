@@ -6,7 +6,7 @@ using BetaSeries.API.Extensions;
 
 namespace BetaSeries.API
 {
-    public interface IPictureService
+    public interface IPictureService : IBaseService
     {
         Task<byte[]> GetShowPictureASync(int showId, int width, int height);
         Task<byte[]> GetEpisodePictureASync(int episodeId, int width, int height);

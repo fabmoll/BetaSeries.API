@@ -40,7 +40,7 @@ namespace BetaSeries.API
         Nobody
     }
 
-    public interface IMemberService
+    public interface IMemberService : IBaseService
     {
         Task<RootAuth> AuthASync(string login, string password);
         Task<bool> DisconnectASync(string token);

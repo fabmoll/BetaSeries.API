@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BetaSeries.API.Exceptions;
 using BetaSeries.API.Model;
 using Kulman.WPA81.BaseRestService.Services.Abstract;
-using Kulman.WPA81.BaseRestService.Services.Exceptions;
 using Newtonsoft.Json;
 
 namespace BetaSeries.API
 {
-    public class BaseService : BaseRestService
+    public interface IBaseService
+    {
+        string Token { get; set; }
+    }
+
+    public class BaseService : BaseRestService, IBaseService
     {
         public string Token { get; set; }
         public string ApiKey { get; set; }

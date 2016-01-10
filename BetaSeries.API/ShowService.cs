@@ -5,7 +5,7 @@ using BetaSeries.API.Model;
 
 namespace BetaSeries.API
 {
-    public interface IShowService
+    public interface IShowService : IBaseService
     {
         Task<IList<Show>> SearchASync(string title);
         Task<Show> DisplayASync(int showId, string user = "");
