@@ -150,7 +150,7 @@ namespace BetaSeries.API.Model
 		public List<string> Aliases { get; set; }
 
 		[JsonProperty("user")]
-		public Member Member { get; set; }
+		public User User { get; set; }
 
 		[JsonProperty("resource_url")]
 		public string ResourceUrl { get; set; }
