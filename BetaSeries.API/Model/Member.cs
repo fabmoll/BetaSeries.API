@@ -68,7 +68,7 @@ namespace BetaSeries.API.Model
 		public List<MemberShowInformation> Shows { get; set; }
 
 		[JsonProperty("options")]
-		public Options Options { get; set; }
+		public Option Options { get; set; }
 	}
 	
 	public class RootMember
