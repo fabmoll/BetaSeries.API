@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Web.Http;
@@ -40,7 +41,7 @@ namespace BetaSeries.API
             if (response.StatusCode == HttpStatusCode.NotFound)
                 return null;
 
-            var stream = response.Content.ReadAsBufferAsync().GetResults();
+            var stream = await response.Content.ReadAsBufferAsync();
 
             var byteArray = stream.ToArray();
 
@@ -68,7 +69,7 @@ namespace BetaSeries.API
             if (response.StatusCode == HttpStatusCode.NotFound)
                 return null;
 
-            var stream = response.Content.ReadAsBufferAsync().GetResults();
+            var stream = await response.Content.ReadAsBufferAsync();
 
             var byteArray = stream.ToArray();
 
@@ -88,7 +89,7 @@ namespace BetaSeries.API
             if (response.StatusCode == HttpStatusCode.NotFound)
                 return null;
 
-            var stream = response.Content.ReadAsBufferAsync().GetResults();
+            var stream = await response.Content.ReadAsBufferAsync();
 
             var byteArray = stream.ToArray();
 
