@@ -49,3 +49,6 @@ L'API utilise les librairies suivantes :
 - [Kulman.WPA81.BaseRestService](https://github.com/igorkulman/Kulman.WPA81.BaseRestService "Kulman.WPA81.BaseRestService")
 - [Json.NET](http://www.newtonsoft.com/json "Json.NET")
 
+**Clé API**
+---
+Afin de pouvoir utiliser l'API de BetaSéries vous devez faire la demande d'une clé : https://www.betaseries.com/api/
