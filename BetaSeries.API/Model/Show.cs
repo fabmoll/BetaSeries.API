@@ -35,6 +35,9 @@ namespace BetaSeries.API.Model
         [JsonProperty("episodes")]
         public string Episodes { get; set; }
 
+        [JsonProperty("images")]
+        public Image Image { get; set; }
+
         [JsonProperty("followers")]
         public string Followers { get; set; }
 
@@ -130,5 +133,20 @@ namespace BetaSeries.API.Model
 
         [JsonProperty("errors")]
         public List<Error> Errors { get; set; }
+    }
+
+    public class Image
+    {
+        [JsonProperty("show")]
+        public string Show { get; set; }
+
+        [JsonProperty("banner")]
+        public string Banner { get; set; }
+
+        [JsonProperty("box")]
+        public string Box { get; set; }
+
+        [JsonProperty("poster")]
+        public string Poster { get; set; }
     }
 }
