@@ -1,4 +1,4 @@
-[![BetaSeries.API MyGet Build Status](https://www.myget.org/BuildSource/Badge/fabmoll?identifier=f210c876-5f57-426b-9e01-4d86fe3a580b)](https://www.myget.org/)
+[![Build status](https://ci.appveyor.com/api/projects/status/0oyj8sb0vj1dsplo/branch/master?svg=true)](https://ci.appveyor.com/project/fabmoll/betaseries-api/branch/master)
 
 # BetaSeries.API
 Universal Windows 10 C# API pour [BetaSéries](http://www.betaseries.com "BetaSéries")
