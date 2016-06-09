@@ -15,9 +15,5 @@
       <dependency id="Newtonsoft.Json" version="8.0.1" />
       <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="5.0.0" />
     </dependencies>
-  </metadata>
-  <files>
-    <file src="BetaSeries.API\bin\$configuration$\BetaSeries.API.*" target="lib\.NETCore50"/>
-    <file src="BetaSeries.API\Properties\BetaSeries.API.rd.xml" target="lib\.NETCore50\BetaSeries.API\Properties"/>
-  </files>
+  </metadata>  
 </package>
