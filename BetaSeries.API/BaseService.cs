@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.Web.Http;
 using BetaSeries.API.Exceptions;
 using BetaSeries.API.Model;
 using Kulman.WPA81.BaseRestService.Services.Abstract;
@@ -63,5 +67,18 @@ namespace BetaSeries.API
 
             ValidateResponse(errors);
         }
+
+        protected new Task<T> Get<T>(string url)
+        {
+            if (url.Contains("?"))
+                url = url + "&no-cache=" + Guid.NewGuid();
+            else
+                url = url + "?no-cache=" + Guid.NewGuid();
+
+            return base.Get<T>(url);
+        }
+
+
+
     }
 }
